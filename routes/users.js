@@ -1,9 +1,13 @@
-var express = require('express');
-var router = express.Router();
+// routes/users.js
+const express = require('express');
+const router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+let ratio = 0.75;
+let acc = 1000;
+
+router.get('/', (req, res) => {
+  acc = acc * ratio;
+  res.send(`Value is: ${acc.toFixed(2)}`); // Added toFixed(2) for cleaner output
 });
 
 module.exports = router;
